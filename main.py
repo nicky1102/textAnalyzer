@@ -14,10 +14,15 @@ if __name__ == "__main__":
     cantCaracteres = contarCaracteres(texto)
     print(f'La cantidad de caracteres en el texto brindado son: {cantCaracteres}')
     
-    lemas, entidades = obtenerLemas(texto)
+    lemas, entidades = obtenerLemas(texto) # Asignación múltiple: cuando la función retorna dos valores y se desempaquetan los valores en las dos variables
     print("Lemas:")
     print(lemas)
 
     print("\nEntidades nombradas:")
     for entidad, tipo in entidades:
         print(f"{entidad} ({tipo})")
+        
+    print(obtenerLemas("Hola desde CR y USA!"))  # Caso válido
+    print(obtenerLemas(""))                      # Provoca ValueError
+    print(obtenerLemas(None))                   # Provoca AssertionError
+    print(obtenerLemas(123))                    # Provoca TypeError
